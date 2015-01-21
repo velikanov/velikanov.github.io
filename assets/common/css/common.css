@@ -16,3 +16,9 @@ div.avatar {
 img.project-image {
     height: 100px;
 }
+
+div.tooltip-im-here {
+    position: relative;
+    display: inline-block;
+    opacity: 1;
+}
