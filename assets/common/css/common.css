@@ -13,7 +13,6 @@ div.avatar {
     margin-top: 20px;
 }
 
-img.social-icon {
-    width: 32px;
-    height: 32px;
+img.project-image {
+    height: 100px;
 }
