@@ -1,30 +1,11 @@
 ---
 layout: post
-title:  "Get started with Java and Spring"
+title: "Get started with Java and Spring. Part I. Maven"
+subtitle: "asd"
 date:   2017-10-12 18:47:27 +0300
-categories: jekyll update
+categories: java spring maven
 ---
-This article is designed mostly for computer engineers with non-Java/Spring programming background who want to get
-started with new technology fast and flawlessly.
-
-Though it doesn’t cover most valuable principles in deployment, migrating and development, it can be used as good
-introductory view on new technology.
-
-I won’t explain every step of this guide but will try to serve you with valuable links where you would get much more
-information.
-
-What you’ll learn here:
-* bootstrap a new modular project with Maven
-* build our modules with Spring Boot as a core foundation
-* using Liquibase for database migrations (with MySQL RDBMS)
-* setting and getting fast data with Spring Redis (using Jedis, yes, the library for Redis)
-* managing containers in every environment painlessly with Docker
-* deploying the application using Ansible, Ansible Vault and… the Makefile
-* render view layer of your application with Thymeleaf templating engine
-* make your work seamless using recipes for IntelliJ Idea
-
-Throughout our journey we’ll build a simple Tube application which will crawl some videos from another website and
-present it on our website.
+{% include GetStartedWithJavaAndSpring/contents.markdown %}
 
 ## Part I. Maven
 ### Disclaimer
@@ -59,7 +40,7 @@ After the project creation you’ll be asked to Auto-Import all the Maven depend
 I prefer to do this, because if you do so then you won’t need to reimport projects manually after any dependency
 updates in your [POM file](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
 
-You can enable Auto-Import later in IntelliJ Idea Preferences: `Build, Execution, Deployment → Build Tools → Maven →
+You can enable Auto-Import later in IntelliJ IDEA Preferences: `Build, Execution, Deployment → Build Tools → Maven →
 Importing` and checking the `Import Maven projects automatically` box.
 
 ![Working with Maven. Import Maven projects automatically]({{ "/assets/img/GetStartedWithJavaAndSpring/PartI_Maven/WorkingWithMaven/ImportMavenProjectsAutomatically.png" }})
@@ -91,7 +72,7 @@ Let's write modules definition (under `<modules>` section) in our root `pom.xml`
 </project>
 {% endhighlight %}
 
-Then you can bootstrap all your modules using IntelliJ Idea's intentions.
+Then you can bootstrap all your modules using IntelliJ IDEA's intentions.
 
 You can choose `Create Module with parent` to share all the common dependencies and plugins between your modules by
 defining the parent.
