@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "Get started with Java and Spring. Part III. Migrations"
-date:   2017-10-12 18:47:29 +0300
-categories: java spring jpa hibernate liquibase
+title:  "Get started with Java and Spring"
+subtitle: "Part III. Migrations"
+series: get_started_with_java_and_spring
+goal: "Using Liquibase for database migrations"
+date: 2017-10-12 18:47:29 +0300
 ---
-{% include GetStartedWithJavaAndSpring/contents.markdown %}
+{% include series.html %}
 
 ## Part III. Migrations
-### Disclaimer
+### Introduction
 
 ### Action
 #### Defining source and destination

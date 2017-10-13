@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "Get started with Java and Spring. Part I. Maven"
-subtitle: "asd"
-date:   2017-10-12 18:47:27 +0300
-categories: java spring maven
+title: "Get started with Java and Spring"
+subtitle: "Part I. Maven"
+series: get_started_with_java_and_spring
+goal: "Bootstrap a new modular project with Maven"
+date: 2017-10-12 18:47:27 +0300
 ---
-{% include GetStartedWithJavaAndSpring/contents.markdown %}
+{% include series.html %}
 
 ## Part I. Maven
-### Disclaimer
+### Introduction
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP’s 
 [Composer](https://getcomposer.org/) is) but a full stack project management solution which helps you to bootstrap 
 your application using all the dependencies needed, build it and deploy.

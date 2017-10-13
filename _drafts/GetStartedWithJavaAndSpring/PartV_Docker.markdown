@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "Get started with Java and Spring. Part V. Docker"
-date:   2017-10-12 18:47:31 +0300
-categories: java spring jpa hibernate liquibase
+title:  "Get started with Java and Spring"
+subtitle: "Part V. Docker"
+series: get_started_with_java_and_spring
+goal: "Managing containers in every environment painlessly with Docker"
+date: 2017-10-12 18:47:31 +0300
 ---
-{% include GetStartedWithJavaAndSpring/contents.markdown %}
+{% include series.html %}
 
 ## Part V. Docker
-### Disclaimer
+### Introduction
 
 ### Action
 #### Creating Docker containers

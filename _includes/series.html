@@ -1,0 +1,18 @@
+{{ site.data.series[page.series].title }} series:
+
+{{ site.data.series[page.series].announcement }}
+
+<div>What we will learn here:</div>
+<ul>
+{% for post in site.posts reversed %}
+    {% if post.series == page.series %}
+        {% if post == page %}
+            <li>{{ post.goal }} (this article)</li>
+        {% else %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.goal }}</a></li>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</ul>
+
+{{ site.data.series[page.series].goal }}

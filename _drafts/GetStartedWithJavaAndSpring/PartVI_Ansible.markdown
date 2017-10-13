@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "Get started with Java and Spring. Part VI. Ansible"
-date:   2017-10-12 18:47:32 +0300
-categories: java spring jpa hibernate liquibase
+title:  "Get started with Java and Spring"
+subtitle: "Part VI. Ansible"
+series: get_started_with_java_and_spring
+goal: "Deploying the application using Ansible, Ansible Vault and… the Makefile"
+date: 2017-10-12 18:47:32 +0300
 ---
-{% include GetStartedWithJavaAndSpring/contents.markdown %}
+{% include series.html %}
 
 ## Part VI. Ansible
-### Disclaimer
+### Introduction
 
 ### Action
 #### Creating Docker containers
