@@ -6,6 +6,8 @@
 <ul>
 {% assign series_current_article_found = false %}
 {% assign series_next_article = null %}
+{% assign sources_path = page.path | replace: "_drafts", "series/sources" | replace: ".markdown", "" %}
+{% assign images_path = page.path | replace: "_drafts", "/assets/img" | replace: ".markdown", "" %}
 
 {% for post in site.posts reversed %}
     {% if post.series == page.series %}
