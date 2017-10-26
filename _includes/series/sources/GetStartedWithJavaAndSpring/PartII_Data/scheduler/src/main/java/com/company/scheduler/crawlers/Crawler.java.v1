@@ -1,0 +1,5 @@
+package com.company.scheduler.crawlers;
+
+public interface Crawler {
+    void crawl();
+}

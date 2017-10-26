@@ -51,6 +51,93 @@ the data retrieving logic. Take a closer look - it's just an interface that desc
 
 You just write that you want to fetch the particular page of most recent entries and… that's all!
 
+#### Configuring the Scheduler
+First of all we have to fetch some videos to store them in our database.
+
+We need to run a periodic task that will run every minute and watch the updates on external website.
+
+We'll start from defining the Spring Boot Application that will search for any
+[scheduled tasks](https://spring.io/guides/gs/scheduling-tasks/) and run them as we configure.
+
+_`./scheduler/src/main/java/com/company/scheduler/Scheduler.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/Scheduler.java.v1 %}
+{% endhighlight %}
+
+Here we have defined our Spring Boot Application and allowed to run it using Scheduler class.
+
+But first we have to define our database connection in `application.properties` file - the main Spring configuration
+file.
+
+_`./scheduler/src/main/resources/application.properties`_
+{% highlight ini %}
+{% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v1 %}
+{% endhighlight %}
+
+Here we have defined our DSN with auto reconnection feature and without using SSL just to suppress the connection
+warning.
+
+Also we specified the SQL Dialect used by [Hibernate](http://hibernate.org/) data framework.
+
+That's almost all but we need to have a database running so we can kickstart it using [Docker](https://www.docker.com/)
+with [Docker Compose](https://docs.docker.com/compose/) like this.
+
+If you are a Mac OS user you definitely want to use 
+[Docker for Mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac). Especially its Edge version.
+
+_`./docker-compose.yml`_
+{% highlight yaml %}
+{% include {{ sources_path }}/docker-compose.yml.v1 %}
+{% endhighlight %}
+
+Start the database container using `docker-compose up` command from inside the directory where `docker-compose.yml` is
+located and we'll have our shiny new database server running and listening on our host 3306 port.
+
+Sure we need to include the MySQL dependency in case to be able to interact with MySQL database.
+
+_`./pom.xml`_
+{% highlight xml %}
+{% include {{ sources_path }}/pom.xml.v1 %}
+{% endhighlight %}
+
+And finally we are ready to run our Scheduler application.
+
 #### Writing data
+Right now our application doesn't make any sense. It runs and dies without any useful goals achieved.
+
+So we have to schedule our operations.
+
+Let's write a basic crawler interface and service that will implement the crawling method.
+
+Then we just call this service from our scheduled task and actually write data to the database.
+
+_`./scheduler/src/main/java/com/company/scheduler/crawlers/Crawler.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawlers/Crawler.java.v1 %}
+{% endhighlight %}
+
+Right now we need our crawlers to do just one thing - crawl. No remorse.
+
+_`./scheduler/src/main/java/com/company/scheduler/crawlers/VideoCrawler.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawlers/VideoCrawler.java.v1 %}
+{% endhighlight %}
+
+This is the place where all the hard work will be made.
+
+Our crawler is a 
+[Component](https://www.concretepage.com/spring/spring-auto-detection-with-component-service-repository-and-controller-stereotype-annotation-example-using-componentscan-and-component-scan#component)
+that will be found by Spring Boot Component Scan and can be [Autowired](http://www.baeldung.com/spring-autowire) in
+other components.
+
+_`./scheduler/src/main/java/com/company/scheduler/schedules/CrawlSchedules.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/schedules/CrawlSchedules.java.v1 %}
+{% endhighlight %}
+
+And this is our almighty Video Crawler that will be called every 60 seconds after last call or at the start of our
+application.
+
+Now we can run our Scheduler application and realise that we have our Video Crawler running every 60 seconds.
 
 #### Fetching data

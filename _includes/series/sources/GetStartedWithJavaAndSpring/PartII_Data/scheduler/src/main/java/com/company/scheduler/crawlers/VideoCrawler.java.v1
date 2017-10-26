@@ -1,0 +1,11 @@
+package com.company.scheduler.crawlers;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class VideoCrawler implements Crawler {
+    @Override
+    public void crawl() {
+        System.out.println("New videos crawling started");
+    }
+}
