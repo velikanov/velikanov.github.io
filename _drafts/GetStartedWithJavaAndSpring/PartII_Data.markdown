@@ -4,11 +4,15 @@ title:  "Get started with Java and Spring"
 subtitle: "Part II. Data"
 series: get_started_with_java_and_spring
 goal: "Read and write the data"
+repo_link: "https://github.com/velikanov/tube/tree/part2_data"
 date: 2017-10-12 18:47:28 +0300
 ---
 {% include series.html %}
 
 ## Part II. Data
+
+{% include sources.html %}
+
 ### Introduction
 [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) is the best way to bootstrap your database interaction
 facilities in the application.
@@ -74,8 +78,8 @@ _`./scheduler/src/main/resources/application.properties`_
 {% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v1 %}
 {% endhighlight %}
 
-Here we have defined our DSN with auto reconnection feature and without using SSL just to suppress the connection
-warning.
+Here we have defined our DSN with auto reconnection feature and without using SSL just to suppress the non-secured
+connection warning.
 
 Also we specified the SQL Dialect used by [Hibernate](http://hibernate.org/) data framework.
 
@@ -145,4 +149,4 @@ Finally we can run our Scheduler application and realise that we have our Video 
 
 Now we can start to crawl videos and store them in our object layer.
 
-
+{% include sources.html %}

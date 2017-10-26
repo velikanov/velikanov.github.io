@@ -4,11 +4,15 @@ title: "Get started with Java and Spring"
 subtitle: "Part I. Maven"
 series: get_started_with_java_and_spring
 goal: "Bootstrap a new modular project with Maven"
+repo_link: "https://github.com/velikanov/tube/tree/part1_maven"
 date: 2017-10-12 18:47:27 +0300
 ---
 {% include series.html %}
 
 ## Part I. Maven
+
+{% include sources.html %}
+
 ### Introduction
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP's 
 [Composer](https://getcomposer.org/) is) but a full stack project management solution which helps you to bootstrap 
@@ -113,3 +117,5 @@ _`./pom.xml`_
 {% endhighlight %}
 
 Now we're ready to get started with database interaction which we'll cover in [next chapter]({{ series_next_article.url | relative_url }}) of this guide.
+
+{% include sources.html %}
