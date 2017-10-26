@@ -1,6 +1,5 @@
-package com.company.library.repository;
+package com.company.library.domain;
 
-import com.company.library.entity.Video;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

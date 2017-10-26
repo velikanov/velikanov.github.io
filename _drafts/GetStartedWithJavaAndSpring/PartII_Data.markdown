@@ -24,9 +24,9 @@ At the beginning it will store the base information about our videos like title,
 
 Also we need to store the external id of the video to make sure that we don't need to fetch this video second time.
 
-_`./library/src/main/java/com/company/library/entity/Video.java`_
+_`./library/src/main/java/com/company/library/domain/Video.java`_
 {% highlight java %}
-{% include {{ sources_path }}/library/src/main/java/com/company/library/entity/Video.java.v1 %}
+{% include {{ sources_path }}/library/src/main/java/com/company/library/domain/Video.java.v1 %}
 {% endhighlight %}
 
 Here we have defined some key abilities for our main entity like
@@ -41,9 +41,9 @@ very handy for us.
 
 Let's define our Video Repository and some methods inside to retrieve our videos.
 
-_`./library/src/main/java/com/company/library/repository/VideoRepository.java`_
+_`./library/src/main/java/com/company/library/domain/VideoRepository.java`_
 {% highlight java %}
-{% include {{ sources_path }}/library/src/main/java/com/company/library/repository/VideoRepository.java.v1 %}
+{% include {{ sources_path }}/library/src/main/java/com/company/library/domain/VideoRepository.java.v1 %}
 {% endhighlight %}
 
 That's the Spring way to describe repository methods. And it really rocks, 'cause you don't really need to implement all
@@ -54,7 +54,7 @@ You just write that you want to fetch the particular page of most recent entries
 #### Configuring the Scheduler
 First of all we have to fetch some videos to store them in our database.
 
-We need to run a periodic task that will run every minute and watch the updates on external website.
+We need to run a periodic task that will run with one minure intervals and watch the updates on external website.
 
 We'll start from defining the Spring Boot Application that will search for any
 [scheduled tasks](https://spring.io/guides/gs/scheduling-tasks/) and run them as we configure.
@@ -102,7 +102,8 @@ _`./pom.xml`_
 
 And finally we are ready to run our Scheduler application.
 
-#### Writing data
+#### Preparations
+
 Right now our application doesn't make any sense. It runs and dies without any useful goals achieved.
 
 So we have to schedule our operations.
@@ -111,16 +112,16 @@ Let's write a basic crawler interface and service that will implement the crawli
 
 Then we just call this service from our scheduled task and actually write data to the database.
 
-_`./scheduler/src/main/java/com/company/scheduler/crawlers/Crawler.java`_
+_`./scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java`_
 {% highlight java %}
-{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawlers/Crawler.java.v1 %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java.v1 %}
 {% endhighlight %}
 
 Right now we need our crawlers to do just one thing - crawl. No remorse.
 
-_`./scheduler/src/main/java/com/company/scheduler/crawlers/VideoCrawler.java`_
+_`./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java`_
 {% highlight java %}
-{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawlers/VideoCrawler.java.v1 %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java.v1 %}
 {% endhighlight %}
 
 This is the place where all the hard work will be made.
@@ -130,14 +131,18 @@ Our crawler is a
 that will be found by Spring Boot Component Scan and can be [Autowired](http://www.baeldung.com/spring-autowire) in
 other components.
 
-_`./scheduler/src/main/java/com/company/scheduler/schedules/CrawlSchedules.java`_
+_`./scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java`_
 {% highlight java %}
-{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/schedules/CrawlSchedules.java.v1 %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java.v1 %}
 {% endhighlight %}
 
-And this is our almighty Video Crawler that will be called every 60 seconds after last call or at the start of our
-application.
+And this is our almighty Video Crawler that will be called after 60 seconds has passed since last call or at the start
+of our application.
 
-Now we can run our Scheduler application and realise that we have our Video Crawler running every 60 seconds.
+Finally we can run our Scheduler application and realise that we have our Video Crawler.
 
 #### Fetching data
+
+Now we can start to crawl videos and store them in our object layer.
+
+

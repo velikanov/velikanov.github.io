@@ -25,16 +25,16 @@ If you haven't any then you need to install JDK e.g. from
 For now we won't create our application from any
 [archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Click `Next`.
 
-![Creating a project. Step 1]({{ images_path }}/Action_CreatingAProject/Step1.png)
+![Creating a project. Step 1]({{ images_path }}/Action/CreatingAProject/Step1.png)
 
 Now we need to enter our company name (called GroupId) e.g. `com.company` and application name (called ArtifactId) e.g.
 `tube`. Let's leave the version as it is.
 
-![Creating a project. Step 2]({{ images_path }}/Action_CreatingAProject/Step2.png)
+![Creating a project. Step 2]({{ images_path }}/Action/CreatingAProject/Step2.png)
 
 Then we choose the location of our project and finally we can start.
 
-![Creating a project. Step 3]({{ images_path }}/Action_CreatingAProject/Step3.png)
+![Creating a project. Step 3]({{ images_path }}/Action/CreatingAProject/Step3.png)
 
 #### Working with Maven
 After the project creation you'll be asked to Auto-Import all the Maven dependencies.
@@ -45,7 +45,7 @@ updates in your [POM file](https://maven.apache.org/guides/introduction/introduc
 You can enable Auto-Import later in IntelliJ IDEA Preferences: `Build, Execution, Deployment → Build Tools → Maven →
 Importing` and checking the `Import Maven projects automatically` box.
 
-![Working with Maven. Import Maven projects automatically]({{ images_path }}/WorkingWithMaven/ImportMavenProjectsAutomatically.png)
+![Working with Maven. Import Maven projects automatically]({{ images_path }}/Action/WorkingWithMaven/ImportMavenProjectsAutomatically.png)
 
 We'll start with three submodules in our project:
 * `Library` - the main entity and repository storage.
@@ -67,6 +67,11 @@ Or you can create all the directory structure by yourself:
 {% highlight sh %}
 {% include {{ sources_path }}/directory_structure.v1 %}
 {% endhighlight %}
+
+Be sure to mark all `src/main/java` directories as `Sources Root` (call context menu on `java` directory and select
+`Mark Directory as → Sources Root`) and all `src/main/resources` as `Resources Root` respectively.
+
+![Working with Maven. Mark Directory as]({{ images_path }}/Action/WorkingWithMaven/MarkDirectoryAs.jpg)
 
 Then we'll be able to define our modules' `pom.xml` files.
 

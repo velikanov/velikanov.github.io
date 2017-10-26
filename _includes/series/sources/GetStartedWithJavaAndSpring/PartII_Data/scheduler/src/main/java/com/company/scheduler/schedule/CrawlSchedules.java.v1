@@ -1,7 +1,6 @@
-package com.company.scheduler.schedules;
+package com.company.scheduler.schedule;
 
-import com.company.scheduler.crawlers.Crawler;
-import com.company.scheduler.crawlers.VideoCrawler;
+import com.company.scheduler.crawler.VideoCrawler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
