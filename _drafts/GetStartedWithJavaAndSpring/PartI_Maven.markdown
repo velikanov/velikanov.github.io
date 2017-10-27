@@ -98,8 +98,18 @@ _`./scheduler/pom.xml`_
 Now we need our Presenter and Scheduler to be dependent on Library module and
 [Spring Boot](https://projects.spring.io/spring-boot/).
 
-We'll just kickstart our whole project under Spring Boot parent like this (we're using the latest version here but you
-can take whichever you want [here](https://projects.spring.io/spring-boot/#quick-start)):
+_`./presenter/pom.xml`_
+{% highlight xml %}
+{% include {{ sources_path }}/presenter/pom.xml.v2 %}
+{% endhighlight %}
+
+_`./scheduler/pom.xml`_
+{% highlight xml %}
+{% include {{ sources_path }}/scheduler/pom.xml.v2 %}
+{% endhighlight %}
+
+Then we'll just kickstart our whole project under Spring Boot parent. We're using the latest version here but you can
+take whichever you want [here](https://projects.spring.io/spring-boot/#quick-start).
 
 _`./pom.xml`_
 {% highlight xml %}

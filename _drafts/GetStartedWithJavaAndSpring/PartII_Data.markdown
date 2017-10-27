@@ -103,6 +103,8 @@ located and we'll have our shiny new database server running and listening on ou
 
 Sure we need to include the MySQL dependency in case to be able to interact with MySQL database.
 
+Let's do it inside our main POM file to share the connector between modules.
+
 _`./pom.xml`_
 {% highlight xml %}
 {% include {{ sources_path }}/pom.xml.v1 %}
@@ -156,9 +158,8 @@ Now we can start to actually crawl videos from external source and store them in
 As we getting started with YouTube we will need an [API key](https://developers.google.com/youtube/v3/getting-started)
 to be able to get videos updates.
 
-When we have obtained API key we can start to implement our fetcher.
-
-First of all we need to store the API key somewhere not in source code.
+When we have obtained API key we can start to implement our fetcher and we need to store our API key somewhere not in
+source code.
 
 So let's do this inside our `application.properties` file.
 
@@ -166,5 +167,10 @@ _`./scheduler/src/main/resources/application.properties`_
 {% highlight ini %}
 {% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v2 %}
 {% endhighlight %}
+
+Now we need to forward this property to our application layer. We will make this happen by defining a
+[Configuration Properties](http://www.baeldung.com/configuration-properties-in-spring-boot) component.
+
+First of all let's include 
 
 {% include sources.html %}
