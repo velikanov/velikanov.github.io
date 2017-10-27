@@ -14,9 +14,9 @@ public class Video {
     @Column(nullable = false)
     private String title;
     @Column(unique = true, nullable = false)
-    private Integer externalId;
+    private String externalId;
     @Column(nullable = false)
-    private String imageUrl;
+    private String imageUri;
     @Column(nullable = false)
     private String duration;
 
@@ -38,18 +38,18 @@ public class Video {
         this.title = title;
     }
 
-    public Integer getExternalId() {
+    public String getExternalId() {
         return externalId;
     }
-    public void setExternalId(Integer externalId) {
+    public void setExternalId(String externalId) {
         this.externalId = externalId;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageUri() {
+        return imageUri;
     }
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public String getDuration() {

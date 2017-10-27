@@ -37,6 +37,8 @@ Here we have defined some key abilities for our main entity like
 [Generated Id](https://en.wikibooks.org/wiki/Java_Persistence/Identity_and_Sequencing#Sequencing) and
 [Creation/Update Timestamps](https://www.thoughts-on-java.org/persist-creation-update-timestamps-hibernate/).
 
+Also we have an unique External ID that we will use to avoid duplicates in our data storage.
+
 #### Creating repositories
 Definitely we want to search for videos in our database.
 
@@ -70,8 +72,10 @@ _`./scheduler/src/main/java/com/company/scheduler/Scheduler.java`_
 
 Here we have defined our Spring Boot Application and allowed to run it using Scheduler class.
 
-But first we have to define our database connection in `application.properties` file - the main Spring configuration
-file.
+But first we have to define our database connection in `application.properties` file - the main
+[Spring Boot configuration file]((http://www.baeldung.com/properties-with-spring)).
+
+> By the way, you can find more about possible properties [here](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
 
 _`./scheduler/src/main/resources/application.properties`_
 {% highlight ini %}
@@ -143,10 +147,24 @@ _`./scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java`_
 And this is our almighty Video Crawler that will be called after 60 seconds has passed since last call or at the start
 of our application.
 
-Finally we can run our Scheduler application and realise that we have our Video Crawler.
+Finally we can run our Scheduler application and realise that we have our Video Crawler running.
 
 #### Fetching data
 
-Now we can start to crawl videos and store them in our object layer.
+Now we can start to actually crawl videos from external source and store them in our object layer.
+
+As we getting started with YouTube we will need an [API key](https://developers.google.com/youtube/v3/getting-started)
+to be able to get videos updates.
+
+When we have obtained API key we can start to implement our fetcher.
+
+First of all we need to store the API key somewhere not in source code.
+
+So let's do this inside our `application.properties` file.
+
+_`./scheduler/src/main/resources/application.properties`_
+{% highlight ini %}
+{% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v2 %}
+{% endhighlight %}
 
 {% include sources.html %}
