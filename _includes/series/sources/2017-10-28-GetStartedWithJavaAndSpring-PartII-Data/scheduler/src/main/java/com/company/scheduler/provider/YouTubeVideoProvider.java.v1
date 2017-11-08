@@ -1,4 +1,4 @@
-package com.company.scheduler.manager;
+package com.company.scheduler.provider;
 
 import com.company.scheduler.properties.SchedulerProperties;
 import com.google.api.client.http.HttpRequest;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class YouTubeVideoManager {
+public class YouTubeVideoProvider {
     private YouTube youTube;
 
     @Autowired
-    public YouTubeVideoManager(SchedulerProperties schedulerProperties) {
+    public YouTubeVideoProvider(SchedulerProperties schedulerProperties) {
         youTube = new YouTube.Builder(
                 new NetHttpTransport(),
                 new JacksonFactory(),

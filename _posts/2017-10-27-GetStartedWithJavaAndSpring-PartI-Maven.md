@@ -126,6 +126,7 @@ _`./pom.xml`_
 {% include {{ sources_path }}/pom.xml.v3 %}
 {% endhighlight %}
 
-Now we're ready to get started with database interaction which we'll cover in [next chapter]({{ series_next_article.url | relative_url }}) of this guide.
+Now we're ready to get started with database interaction which we'll cover in
+[next chapter]({{ series_next_article.url | relative_url }}) of this guide.
 
 {% include sources.html %}

@@ -1,4 +1,4 @@
-package com.company.scheduler.manager;
+package com.company.scheduler.converter;
 
 import com.company.library.domain.Video;
 import com.google.api.services.youtube.model.Thumbnail;
@@ -8,7 +8,38 @@ import com.google.api.services.youtube.model.VideoSnippet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VideoManager {
+public class VideoConverter {
+    public static class ThumbnailUrlResolver {
+        static String resolveThumbnailUrl(ThumbnailDetails thumbnailDetails) {
+            Thumbnail thumbnail = thumbnailDetails.getMaxres();
+            if (null != thumbnail) {
+                return thumbnail.getUrl();
+            }
+
+            thumbnail = thumbnailDetails.getHigh();
+            if (null != thumbnail) {
+                return thumbnail.getUrl();
+            }
+
+            thumbnail = thumbnailDetails.getMedium();
+            if (null != thumbnail) {
+                return thumbnail.getUrl();
+            }
+
+            thumbnail = thumbnailDetails.getStandard();
+            if (null != thumbnail) {
+                return thumbnail.getUrl();
+            }
+
+            thumbnail = thumbnailDetails.getDefault();
+            if (null != thumbnail) {
+                return thumbnail.getUrl();
+            }
+
+            return null;
+        }
+    }
+
     public Video createFromYoutubeVideo(com.google.api.services.youtube.model.Video youtubeVideo) {
         VideoSnippet youtubeVideoSnippet = youtubeVideo.getSnippet();
         VideoContentDetails youtubeVideoContentDetails = youtubeVideo.getContentDetails();
@@ -21,7 +52,7 @@ public class VideoManager {
 
             ThumbnailDetails youtubeVideoThumbnailDetails = youtubeVideoSnippet.getThumbnails();
             if (youtubeVideoThumbnailDetails.size() > 0) {
-                video.setImageUri(resolveThumbnailUrl(youtubeVideoThumbnailDetails));
+                video.setImageUri(ThumbnailUrlResolver.resolveThumbnailUrl(youtubeVideoThumbnailDetails));
             }
         }
 
@@ -30,34 +61,5 @@ public class VideoManager {
         }
 
         return video;
-    }
-
-    private String resolveThumbnailUrl(ThumbnailDetails thumbnailDetails) {
-        Thumbnail thumbnail = thumbnailDetails.getMaxres();
-        if (null != thumbnail) {
-            return thumbnail.getUrl();
-        }
-
-        thumbnail = thumbnailDetails.getHigh();
-        if (null != thumbnail) {
-            return thumbnail.getUrl();
-        }
-
-        thumbnail = thumbnailDetails.getMedium();
-        if (null != thumbnail) {
-            return thumbnail.getUrl();
-        }
-
-        thumbnail = thumbnailDetails.getStandard();
-        if (null != thumbnail) {
-            return thumbnail.getUrl();
-        }
-
-        thumbnail = thumbnailDetails.getDefault();
-        if (null != thumbnail) {
-            return thumbnail.getUrl();
-        }
-
-        return null;
     }
 }

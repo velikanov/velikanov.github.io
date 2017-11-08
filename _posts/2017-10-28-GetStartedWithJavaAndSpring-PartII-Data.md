@@ -3,7 +3,7 @@ layout: post
 title:  "Get started with Java and Spring"
 subtitle: "Part II. Data"
 series: get_started_with_java_and_spring
-goal: "Read and write the data"
+goal: "Read and write data. Interact with YouTube API"
 repo_link: "https://github.com/velikanov/tube/tree/part2_data"
 date: 2017-10-12 18:47:28 +0300
 ---
@@ -171,6 +171,49 @@ _`./scheduler/src/main/resources/application.properties`_
 Now we need to forward this property to our application layer. We will make this happen by defining a
 [Configuration Properties](http://www.baeldung.com/configuration-properties-in-spring-boot) component.
 
-First of all let's include 
+_`./scheduler/src/main/java/com/company/scheduler/properties/SchedulerProperties.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/properties/SchedulerProperties.java.v1 %}
+{% endhighlight %}
+
+Now our YouTube API key will be available from inside our Scheduler Properties Configuration Component instance.
+
+We will fetch our videos with self-written YouTube API interaction provider.
+
+_`./scheduler/src/main/java/com/company/scheduler/provider/YouTubeVideoProvider.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/provider/YouTubeVideoProvider.java.v1 %}
+{% endhighlight %}
+
+Here we have defined our YouTube video provider that will create a YouTube connector instance and implement some methods
+for videos loading.
+
+Finally we have to create Video converter that will convert the YouTube video to our Video entity object.
+
+_`./scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java.v1 %}
+{% endhighlight %}
+
+And now we can assemble all the written components and reach our primary goal - crawl the videos.
+
+_`./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java`_
+{% highlight java %}
+{% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java.v2 %}
+{% endhighlight %}
+
+Everything is ready to start the crawling but the database schema.
+
+Hibernate has very handy feature for development environments - 
+[Automatic DDL Update](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html).
+
+_`./scheduler/src/main/resources/application.properties`_
+{% highlight ini %}
+{% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v3 %}
+{% endhighlight %}
+
+Finally we can start our Scheduler and fetch our first five videos.
+
+In the next chapter we will learn how to use Spring with Jedis to store and retrieve fast data.
 
 {% include sources.html %}
