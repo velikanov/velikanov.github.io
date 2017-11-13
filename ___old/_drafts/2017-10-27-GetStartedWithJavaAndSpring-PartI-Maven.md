@@ -6,9 +6,6 @@ series: get_started_with_java_and_spring
 goal: "Bootstrap a new modular project with Maven"
 repo_link: "https://github.com/velikanov/tube/tree/part1_maven"
 date: 2017-10-12 18:47:27 +0300
-tags:
-- java
-- spring
 ---
 {% include series.html %}
 
@@ -20,8 +17,6 @@ tags:
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP's 
 [Composer](https://getcomposer.org/) is) but a full stack project management solution which helps you to bootstrap 
 your application using all the dependencies needed, build it and deploy.
-
-<!--more-->
 
 ### Action
 #### Creating a project

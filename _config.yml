@@ -1,43 +1,89 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Velikanov.pro
+# General Settings
+name: Sergei Velikanov
+job_title: Developer, Team Leader, CTO
 email: me@velikanov.pro
-description: >- # this means to ignore newlines until "baseurl:"
-#  Write an awesome description for your new site here. You can edit this
-#  line in _config.yml. It will appear in your document head meta (for
-#  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://velikanov.pro" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: velikanovpro
-github_username: velikanov
+description: |
+  I am a developer in broad sense of the term.<br />
+  My belief is that one doesn't have to stick to one gun to be perfect shooter.<br />
+  Flexibility over sedentary.<br />
+  Extensibility over attachment.<br />
+  Achievement over observation.
+avatar: https://github.com/velikanov/velikanov.github.io/raw/master/assets/img/photo.png
+favicon: /favicon.ico
+twitter_handler: '@velikanovpro'
+analytics_code: UA-58781157-1
+disqus: velikanov-pro
 
-# Build settings
+# Certifications
+certifications:
+- { name: 'Zend Certified Engineer', image_url: 'https://www.zend.com/static-assets/img/zcedirectory/zce-2017-small.gif', url: 'https://www.zend.com/en/yellow-pages/ZEND030525' }
+- { name: 'Certified Blockchain Expert', image_url: 'https://s3.amazonaws.com/accredible-api-badge/1499864542117.png', url: 'https://www.credential.net/hafc5zkn' }
+
+# Social Accounts
+social_networks:
+-  { name: facebook, url: 'https://www.facebook.com/serge.velikanov' }
+-  { name: linkedin, url: 'https://linkedin.com/sergevelikan' }
+-  { name: twitter, url: 'https://twitter.com/velikanovpro' }
+-  { name: github, url: 'https://github.com/velikanov' }
+-  { name: instagram, url: '' }
+-  { name: google-plus, url: '' }
+-  { name: skype, url: '' }
+-  { name: codepen, url: '' }
+-  { name: stack-overflow, url: '' }
+-  { name: dribbble, url: '' }
+-  { name: behance, url: '' }
+-  { name: pinterest, url: '' }
+-  { name: tumblr, url: '' }
+-  { name: youtube, url: '' }
+-  { name: vimeo, url: '' }
+-  { name: vine, url: '' }
+-  { name: 500px, url: '' }
+-  { name: flickr, url: '' }
+-  { name: spotify, url: '' }
+-  { name: steam, url: '' }
+-  { name: wordpress, url: '' }
+-  { name: xing, url: '' }
+-  { name: bitcoin, url: '' }
+-  { name: pocket, url: '' }
+
+# Modules Settings
+show_categories: 0
+show_tags: 1
+show_email: 1
+show_rss: 1
+show_comments: 1
+show_menu: 1
+fixed_sidebar: 0
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: "true"
+
+# Serving
+url: "https://velikanov.pro"
+baseurl: ""
+
+# Includes
+include: ["_pages"]
+
+# Outputting
+permalink: /:categories/:title.html
+category_dir: categories
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Conversion
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+excerpt_separator: <!--more-->
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Assets Settings
+sass:
+  sass_dir: assets/partials
+  style: compressed

@@ -6,9 +6,6 @@ series: get_started_with_java_and_spring
 goal: "Read and write data. Interact with YouTube API"
 repo_link: "https://github.com/velikanov/tube/tree/part2_data"
 date: 2017-10-12 18:47:28 +0300
-tags:
-- java
-- spring
 ---
 {% include series.html %}
 
@@ -22,8 +19,6 @@ facilities in the application.
 
 [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) itself provides you with the ability to describe entities,
 relations and many more while Spring Data JPA is used to interact with entities easily through Repositories.
-
-<!--more-->
 
 ### Action
 #### Defining entities
