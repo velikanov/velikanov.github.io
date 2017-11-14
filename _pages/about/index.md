@@ -37,7 +37,7 @@ I think that the world of development needs more confident programmers, more dar
 And my mission is to provide developers full of hesitation about something new, with refreshing sense that development
 world will not be truly effective and complete without their courage and drive hidden deep inside their minds.
 
-I am sure thath everything is possible, anything is reachable while you keep rocking really hard.
+I am sure that everything is possible, anything is reachable while you keep rocking really hard.
 
 **Flexibility** over sedentary.
 
