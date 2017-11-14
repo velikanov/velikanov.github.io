@@ -36,7 +36,7 @@
         </div>
         {% endif %}
 
-        {% if site.tags %}
+        {% if site.show_tags == 1 and site.tags %}
         <div class="mainmenu">
             <div class="mb-1">Tags</div>
             {% for tag in site.tags %}
