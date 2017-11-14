@@ -2,13 +2,7 @@
 name: Sergei Velikanov
 job_title: Developer, Team Leader, CTO
 email: me@velikanov.pro
-description: |
-  I am a developer in broad sense of the term.<br />
-  My belief is that one doesn't have to stick to one gun to be perfect shooter.<br />
-  Flexibility over sedentary.<br />
-  Extensibility over attachment.<br />
-  Achievement over observation.
-avatar: https://github.com/velikanov/velikanov.github.io/raw/master/assets/img/photo.png
+avatar: /assets/img/photo_sm.png
 favicon: /favicon.ico
 twitter_handler: '@velikanovpro'
 analytics_code: UA-58781157-1

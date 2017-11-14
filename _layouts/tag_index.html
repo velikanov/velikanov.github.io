@@ -19,7 +19,7 @@ layout: default_w_sidebar
                     </li>
                     {% endif %}
                 </ul>
-                <h2 itemprop="name headline"><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></h2>
+                <h2 itemprop="name headline"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
             </header>
 
             <div class="post-content">

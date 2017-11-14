@@ -1,10 +1,10 @@
 get_started_with_java_and_spring:
     title: Get started with Java and Spring
     announcement: |
-        This article is designed mostly for computer engineers with non-Java/Spring programming background who want to
-        get started with new technology fast and flawlessly.
+        This article series is designed mostly for computer engineers with non-Java/Spring programming background who
+        want to get started with new technology fast and flawlessly.
 
-        Though it doesn’t cover most valuable principles in deployment, migrating and development, it can be used as
+        Though it doesn’t cover most valuable principles in development, migrating and deployment, it can be used as
         good introductory view on new technology.
 
         I won’t explain every step of this guide deeply but will try to serve you with valuable links where you would

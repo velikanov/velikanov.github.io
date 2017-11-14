@@ -38,6 +38,7 @@
 
         {% if site.tags %}
         <div class="mainmenu">
+            <div class="mb-1">Tags</div>
             {% for tag in site.tags %}
                 <a href="{{ site.baseurl | relative_url }}/tag/{{ tag[0] }}" {% if tag[0] == page.tag %}class="active"{% endif %}>{{ tag[0] }}</a>
             {% endfor %}

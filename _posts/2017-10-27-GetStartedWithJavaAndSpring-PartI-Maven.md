@@ -10,11 +10,11 @@ tags:
 - java
 - spring
 ---
-{% include series.html %}
-
 ## Part I. Maven
 
 {% include sources.html %}
+
+{% include series.html %}
 
 ### Introduction
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP's 
@@ -61,9 +61,9 @@ We'll start with three submodules in our project:
 * `Presenter` - our web frontend.
 * `Scheduler` - the data handler.
 
-Let's write modules definition (under `<modules>` section) in our root _`pom.xml`_:
+Let's write modules definition (under `<modules>` section) in our root `pom.xml`:
 
-{% highlight xml %}
+{% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v1 %}
 {% endhighlight %}
 
@@ -80,22 +80,22 @@ Or you can create all the directory structure by yourself:
 Be sure to mark all `src/main/java` directories as `Sources Root` (call context menu on `java` directory and select
 `Mark Directory as → Sources Root`) and all `src/main/resources` as `Resources Root` respectively.
 
-![Working with Maven. Mark Directory as]({{ images_path }}/Action/WorkingWithMaven/MarkDirectoryAs.jpg)
+![Working with Maven. Mark Directory as]({{ images_path }}/Action/WorkingWithMaven/MarkDirectoryAs.jpg){: .nofullwidth }
 
 Then we'll be able to define our modules' `pom.xml` files.
 
-_`./library/pom.xml`_
-{% highlight xml %}
+<code>./library/pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/library/pom.xml.v1 %}
 {% endhighlight %}
 
-_`./presenter/pom.xml`_
-{% highlight xml %}
+<code>./presenter/pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/presenter/pom.xml.v1 %}
 {% endhighlight %}
 
-_`./scheduler/pom.xml`_
-{% highlight xml %}
+<code>./scheduler/pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/scheduler/pom.xml.v1 %}
 {% endhighlight %}
 
@@ -103,21 +103,21 @@ _`./scheduler/pom.xml`_
 Now we need our Presenter and Scheduler to be dependent on Library module and
 [Spring Boot](https://projects.spring.io/spring-boot/).
 
-_`./presenter/pom.xml`_
-{% highlight xml %}
+<code>./presenter/pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/presenter/pom.xml.v2 %}
 {% endhighlight %}
 
-_`./scheduler/pom.xml`_
-{% highlight xml %}
+<code>./scheduler/pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/scheduler/pom.xml.v2 %}
 {% endhighlight %}
 
 Then we'll just kickstart our whole project under Spring Boot parent. We're using the latest version here but you can
 take whichever you want [here](https://projects.spring.io/spring-boot/#quick-start).
 
-_`./pom.xml`_
-{% highlight xml %}
+<code>./pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v2 %}
 {% endhighlight %}
 
@@ -126,8 +126,8 @@ Now all our modules will be packed with brand new Spring Boot Framework inside.
 We also need to accompany our modules with database interaction ability so we include the Spring Boot Data JPA starter
 module.
 
-_`./pom.xml`_
-{% highlight xml %}
+<code>./pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v3 %}
 {% endhighlight %}
 

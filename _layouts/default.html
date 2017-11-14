@@ -3,8 +3,14 @@
     {% include head.html %}
 
     <body>
-        <div class="wrapper clear">
+        <div class="wrapper-wo-top clear">
             <main class="the-page-content" role="main">
+                <div class="post single breadcrumbs">
+                    <div class="post-content">
+                        <a href="{{ "/" | relative_url }}">Velikanov.pro</a> &rarr; {{ page.title }}{% if page.subtitle != null %}. {{ page.subtitle }}{% endif %}
+                    </div>
+                </div>
+
                 {{ content }}
             </main>
         </div>

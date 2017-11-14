@@ -5,6 +5,7 @@ dl, dt, dd, ul { margin: 0; padding: 0; list-style: none; }
 ol { margin: 0; padding: 0 0 0 20px; }
 form, input, textarea, select { font: 400 16px/16px 'Roboto', Arial, sans-serif; margin: 0; padding: 0; resize: none; }
 img { max-width: 100%; width: 100%; margin: 0 auto; height: auto; display: block; border: 0; }
+img.nofullwidth { width: auto!important; }
 a { text-decoration: none; color: $grey-color-normal; }
 p { margin: 0; }
 input:focus, textarea:focus, select:focus { outline: none; }

@@ -5,16 +5,16 @@ subtitle: "Part II. Data"
 series: get_started_with_java_and_spring
 goal: "Read and write data. Interact with YouTube API"
 repo_link: "https://github.com/velikanov/tube/tree/part2_data"
-date: 2017-10-12 18:47:28 +0300
+date: 2017-11-07 18:47:28 +0300
 tags:
 - java
 - spring
 ---
-{% include series.html %}
-
 ## Part II. Data
 
 {% include sources.html %}
+
+{% include series.html %}
 
 ### Introduction
 [Spring Data JPA](https://projects.spring.io/spring-data-jpa/) is the best way to bootstrap your database interaction
@@ -33,8 +33,8 @@ At the beginning it will store the base information about our videos like title,
 
 Also we need to store the external id of the video to make sure that we don't need to fetch this video second time.
 
-_`./library/src/main/java/com/company/library/domain/Video.java`_
-{% highlight java %}
+<code>./library/src/main/java/com/company/library/domain/Video.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/library/src/main/java/com/company/library/domain/Video.java.v1 %}
 {% endhighlight %}
 
@@ -52,8 +52,8 @@ very handy for us.
 
 Let's define our Video Repository and some methods inside to retrieve our videos.
 
-_`./library/src/main/java/com/company/library/domain/VideoRepository.java`_
-{% highlight java %}
+<code>./library/src/main/java/com/company/library/domain/VideoRepository.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/library/src/main/java/com/company/library/domain/VideoRepository.java.v1 %}
 {% endhighlight %}
 
@@ -70,8 +70,8 @@ We need to run a periodic task that will run with one minure intervals and watch
 We'll start from defining the Spring Boot Application that will search for any
 [scheduled tasks](https://spring.io/guides/gs/scheduling-tasks/) and run them as we configure.
 
-_`./scheduler/src/main/java/com/company/scheduler/Scheduler.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/Scheduler.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/Scheduler.java.v1 %}
 {% endhighlight %}
 
@@ -82,8 +82,8 @@ But first we have to define our database connection in `application.properties` 
 
 > By the way, you can find more about possible properties [here](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
 
-_`./scheduler/src/main/resources/application.properties`_
-{% highlight ini %}
+<code>./scheduler/src/main/resources/application.properties</code>
+{% highlight ini linenos %}
 {% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v1 %}
 {% endhighlight %}
 
@@ -98,8 +98,8 @@ with [Docker Compose](https://docs.docker.com/compose/) like this.
 If you are a Mac OS user you definitely want to use 
 [Docker for Mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac). Especially its Edge version.
 
-_`./docker-compose.yml`_
-{% highlight yaml %}
+<code>./docker-compose.yml</code>
+{% highlight yaml linenos %}
 {% include {{ sources_path }}/docker-compose.yml.v1 %}
 {% endhighlight %}
 
@@ -110,8 +110,8 @@ Sure we need to include the MySQL dependency in case to be able to interact with
 
 Let's do it inside our main POM file to share the connector between modules.
 
-_`./pom.xml`_
-{% highlight xml %}
+<code>./pom.xml</code>
+{% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v1 %}
 {% endhighlight %}
 
@@ -127,15 +127,15 @@ Let's write a basic crawler interface and service that will implement the crawli
 
 Then we just call this service from our scheduled task and actually write data to the database.
 
-_`./scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java.v1 %}
 {% endhighlight %}
 
 Right now we need our crawlers to do just one thing - crawl. No remorse.
 
-_`./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java.v1 %}
 {% endhighlight %}
 
@@ -146,8 +146,8 @@ Our crawler is a
 that will be found by Spring Boot Component Scan and can be [Autowired](http://www.baeldung.com/spring-autowire) in
 other components.
 
-_`./scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/schedule/CrawlSchedules.java.v1 %}
 {% endhighlight %}
 
@@ -168,16 +168,16 @@ source code.
 
 So let's do this inside our `application.properties` file.
 
-_`./scheduler/src/main/resources/application.properties`_
-{% highlight ini %}
+<code>./scheduler/src/main/resources/application.properties</code>
+{% highlight ini linenos %}
 {% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v2 %}
 {% endhighlight %}
 
 Now we need to forward this property to our application layer. We will make this happen by defining a
 [Configuration Properties](http://www.baeldung.com/configuration-properties-in-spring-boot) component.
 
-_`./scheduler/src/main/java/com/company/scheduler/properties/SchedulerProperties.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/properties/SchedulerProperties.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/properties/SchedulerProperties.java.v1 %}
 {% endhighlight %}
 
@@ -185,8 +185,8 @@ Now our YouTube API key will be available from inside our Scheduler Properties C
 
 We will fetch our videos with self-written YouTube API interaction provider.
 
-_`./scheduler/src/main/java/com/company/scheduler/provider/YouTubeVideoProvider.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/provider/YouTubeVideoProvider.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/provider/YouTubeVideoProvider.java.v1 %}
 {% endhighlight %}
 
@@ -195,15 +195,15 @@ for videos loading.
 
 Finally we have to create Video converter that will convert the YouTube video to our Video entity object.
 
-_`./scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java.v1 %}
 {% endhighlight %}
 
 And now we can assemble all the written components and reach our primary goal - crawl the videos.
 
-_`./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java`_
-{% highlight java %}
+<code>./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java</code>
+{% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java.v2 %}
 {% endhighlight %}
 
@@ -212,8 +212,8 @@ Everything is ready to start the crawling but the database schema.
 Hibernate has very handy feature for development environments - 
 [Automatic DDL Update](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html).
 
-_`./scheduler/src/main/resources/application.properties`_
-{% highlight ini %}
+<code>./scheduler/src/main/resources/application.properties</code>
+{% highlight ini linenos %}
 {% include {{ sources_path }}/scheduler/src/main/resources/application.properties.v3 %}
 {% endhighlight %}
 
