@@ -252,6 +252,9 @@ figure.highlight {
 	code {
 		pre {
 			white-space: pre !important;
+			span {
+				font-size: inherit !important;
+			}
 		}
 	}
 	&>pre {
