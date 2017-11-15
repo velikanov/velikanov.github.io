@@ -3,7 +3,7 @@ svg4everybody();
 jQuery(document).ready( function() {
 
     // Makes all videos responsive.
-    jQuery(".the-content").fitVids();
+    jQuery(".the-content, .the-page-content").fitVids();
 
     // Shows the number of search results.
     jQuery('#search-input').on('focus', function() {
