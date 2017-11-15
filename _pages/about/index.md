@@ -7,7 +7,8 @@ permalink: "/about/"
 Hi there!
 
 My name is Sergei Velikanov and I am Developer in broad sense of the term.<br />
-My main area of expertise is Hugely Loaded Web Applications and my area of high interest are Blockchain and Cryptocurrency.
+My main area of expertise is Hugely Loaded Web Applications.
+Besides I'm highly interested in Blockchain technology and Cryptocurrencies.
 
 Today I'm working as CTO in great international company [8bit group](http://8bitgroup.com/).<br />
 We're constantly looking for skilled and experienced Symfony and Java/Spring developers.
