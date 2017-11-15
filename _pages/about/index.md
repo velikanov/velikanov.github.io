@@ -6,7 +6,7 @@ permalink: "/about/"
 
 Hi there!
 
-My name is Sergei Velikanov and I am a developer in broad sense of the term.<br />
+My name is Sergei Velikanov and I am developer in broad sense of the term.<br />
 My main area of expertise is Web development.
 
 Currently I'm working as CTO.
@@ -30,12 +30,12 @@ I stick to [Ethereum](https://www.ethereum.org/)'s [Solidity](https://solidity.r
 ---
 
 I'm running some private educational courses for corporate developers and taking a part in training and growing young
-professionals in the Web development area.
+professionals in Web development area.
 
 I think that the world of development needs more confident programmers, more daring engineers.
 
-And my mission is to provide developers full of hesitation about something new, with refreshing sense that development
-world will not be truly effective and complete without their courage and drive hidden deep inside their minds.
+And my mission is to supply developers that are full of hesitation about something new, with refreshing sense that
+development world will not be truly complete without their courage and drive hidden deep inside their minds.
 
 I am sure that everything is possible, anything is reachable while you keep rocking really hard.
 
