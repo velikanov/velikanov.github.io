@@ -16,10 +16,6 @@ tags:
 
 {% include series.html %}
 
-### Goals
-
-
-
 ### Introduction
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP's 
 [Composer](https://getcomposer.org/) is) but a full stack project management solution which helps you to bootstrap 
