@@ -31,7 +31,7 @@ Let's start with defining of Video entity.
 
 At the beginning it will store the base information about our videos like title, thumbnail and duration.
 
-Also we need to store the external id of the video to make sure that we don't need to fetch this video second time.
+Also we need to store the external video id to make sure that we don't need to fetch this video second time.
 
 <code>./library/src/main/java/com/company/library/domain/Video.java</code>
 {% highlight java linenos %}
@@ -42,33 +42,15 @@ Here we have defined some key abilities for our main entity like
 [Generated Id](https://en.wikibooks.org/wiki/Java_Persistence/Identity_and_Sequencing#Sequencing) and
 [Creation/Update Timestamps](https://www.thoughts-on-java.org/persist-creation-update-timestamps-hibernate/).
 
-Also we have an unique External ID that we will use to avoid duplicates in our data storage.
-
-#### Creating repositories
-Definitely we want to search for videos in our database.
-
-And [Spring JPA Repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories) come in
-very handy for us.
-
-Let's define our Video Repository and some methods inside to retrieve our videos.
-
-<code>./library/src/main/java/com/company/library/domain/VideoRepository.java</code>
-{% highlight java linenos %}
-{% include {{ sources_path }}/library/src/main/java/com/company/library/domain/VideoRepository.java.v1 %}
-{% endhighlight %}
-
-That's the Spring way to describe repository methods. And it really rocks, 'cause you don't really need to implement all
-the data retrieving logic. Take a closer look - it's just an interface that describes needed data retrieval methods.
-
-You just write that you want to fetch the particular page of most recent entries and… that's all!
+Also we have an unique `External ID` that we will use to avoid duplicates in our data storage.
 
 #### Configuring the Scheduler
 First of all we have to fetch some videos to store them in our database.
 
-We need to run a periodic task that will run with one minure intervals and watch the updates on external website.
+We need to run a periodic task that will run with one minute intervals and watch the updates on external website.
 
-We'll start from defining the Spring Boot Application that will search for any
-[scheduled tasks](https://spring.io/guides/gs/scheduling-tasks/) and run them as we configure.
+We'll start with defining of Spring Boot Application searching for any
+[scheduled tasks](https://spring.io/guides/gs/scheduling-tasks/) and running them as we configure.
 
 <code>./scheduler/src/main/java/com/company/scheduler/Scheduler.java</code>
 {% highlight java linenos %}
@@ -80,7 +62,8 @@ Here we have defined our Spring Boot Application and allowed to run it using Sch
 But first we have to define our database connection in `application.properties` file - the main
 [Spring Boot configuration file]((http://www.baeldung.com/properties-with-spring)).
 
-> By the way, you can find more about possible properties [here](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
+> BTW, you can find more about possible properties
+[here](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
 
 <code>./scheduler/src/main/resources/application.properties</code>
 {% highlight ini linenos %}
@@ -108,14 +91,14 @@ located and we'll have our shiny new database server running and listening on ou
 
 Sure we need to include the MySQL dependency in case to be able to interact with MySQL database.
 
-Let's do it inside our main POM file to share the connector between modules.
+We can do it inside our main POM file to share the connector between modules.
 
 <code>./pom.xml</code>
 {% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v1 %}
 {% endhighlight %}
 
-And finally we are ready to run our Scheduler application.
+And now we are ready to run our Scheduler application.
 
 #### Preparations
 
@@ -132,14 +115,14 @@ Then we just call this service from our scheduled task and actually write data t
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/Crawler.java.v1 %}
 {% endhighlight %}
 
-Right now we need our crawlers to do just one thing - crawl. No remorse.
+Now we need our crawlers to be able to do just one thing - crawl. No remorse.
 
 <code>./scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java</code>
 {% highlight java linenos %}
 {% include {{ sources_path }}/scheduler/src/main/java/com/company/scheduler/crawler/VideoCrawler.java.v1 %}
 {% endhighlight %}
 
-This is the place where all the hard work will be made.
+This is the place where all the hard work will be done.
 
 Our crawler is a 
 [Component](https://www.concretepage.com/spring/spring-auto-detection-with-component-service-repository-and-controller-stereotype-annotation-example-using-componentscan-and-component-scan#component)
@@ -154,7 +137,7 @@ other components.
 And this is our almighty Video Crawler that will be called after 60 seconds has passed since last call or at the start
 of our application.
 
-Finally we can run our Scheduler application and realise that we have our Video Crawler running.
+Now we can run our Scheduler application and realise that we have our Video Crawler running.
 
 #### Fetching data
 
@@ -166,7 +149,7 @@ to be able to get videos updates.
 When we have obtained API key we can start to implement our fetcher and we need to store our API key somewhere not in
 source code.
 
-So let's do this inside our `application.properties` file.
+So we will do this inside our `application.properties` file.
 
 <code>./scheduler/src/main/resources/application.properties</code>
 {% highlight ini linenos %}
@@ -193,7 +176,7 @@ We will fetch our videos with self-written YouTube API interaction provider.
 Here we have defined our YouTube video provider that will create a YouTube connector instance and implement some methods
 for videos loading.
 
-Finally we have to create Video converter that will convert the YouTube video to our Video entity object.
+We have to create Video converter that will convert the YouTube video to our Video entity object.
 
 <code>./scheduler/src/main/java/com/company/scheduler/converter/VideoConverter.java</code>
 {% highlight java linenos %}

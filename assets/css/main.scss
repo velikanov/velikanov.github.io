@@ -244,27 +244,19 @@ a svg * {
 }
 
 figure.highlight {
-	font-size: 80%;
-	line-height: normal;
-	* {
-		line-height: normal;
-	}
-	code {
-		pre {
-			white-space: pre !important;
-			span {
-				font-size: inherit !important;
-			}
-		}
-	}
-	&>pre {
+	-webkit-text-size-adjust: none;
+
+	code pre {
+		line-height: 100%;
+
 		white-space: pre !important;
+		word-break: normal !important;
+		word-wrap: normal !important;
+	}
+
+	&>pre {
 		overflow-x: scroll;
 	}
-}
-
-pre.lineno {
-	white-space: nowrap;
 }
 
 @import "responsive";

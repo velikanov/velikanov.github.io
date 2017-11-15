@@ -16,6 +16,10 @@ tags:
 
 {% include series.html %}
 
+### Goals
+
+
+
 ### Introduction
 [Apache Maven](https://maven.apache.org/) is not just a dependency manager (like PHP's 
 [Composer](https://getcomposer.org/) is) but a full stack project management solution which helps you to bootstrap 
@@ -37,7 +41,7 @@ For now we won't create our application from any
 ![Creating a project. Step 1]({{ images_path }}/Action/CreatingAProject/Step1.png)
 
 Now we need to enter our company name (called GroupId) e.g. `com.company` and application name (called ArtifactId) e.g.
-`tube`. Let's leave the version as it is.
+`tube`. We'll leave the version as it is.
 
 ![Creating a project. Step 2]({{ images_path }}/Action/CreatingAProject/Step2.png)
 
@@ -61,7 +65,7 @@ We'll start with three submodules in our project:
 * `Presenter` - our web frontend.
 * `Scheduler` - the data handler.
 
-Let's write modules definition (under `<modules>` section) in our root `pom.xml`:
+Now we have to write modules definition (under `<modules>` section) in our root `pom.xml`:
 
 {% highlight xml linenos %}
 {% include {{ sources_path }}/pom.xml.v1 %}
