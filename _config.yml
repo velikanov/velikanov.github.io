@@ -12,7 +12,7 @@ disqus: velikanov-pro
 
 # Certifications
 certifications:
-- { name: 'Zend Certified Engineer', image_url: 'https://www.zend.com/static-assets/img/zcedirectory/zce-2017-small.gif', url: 'https://www.zend.com/en/yellow-pages/ZEND030525' }
+- { name: 'Zend Certified Engineer', image_url: 'https://www.zend-zce.com/static-assets/img/zcedirectory/zce-2017-small.gif', url: 'https://www.zend.com/en/yellow-pages/ZEND030525' }
 - { name: 'Certified Blockchain Expert', image_url: 'https://s3.amazonaws.com/accredible-api-badge/1499864542117.png', url: 'https://www.credential.net/hafc5zkn' }
 - { name: 'Certified Blockchain Developer', image_url: 'https://s3.amazonaws.com/accredible-api-badge/1502437550836.png', url: 'https://www.credential.net/kaxyrn0b' }
 
